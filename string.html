@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string.html</title>
+</head>
+<body>
+    <script>
+        var str1 = "Hello";
+        var str2 = new String("Hello");
+
+        if(str1 == str2) {
+            console.log("같습니다.");
+        } else {
+            console.log("다릅니다.");
+        }
+
+        str1 = "please locate where 'locate' occurs!";
+        var position = str1.lastIndexOf('locate');
+        console.log(position);
+
+        str1 = "김다희 이광호 김도은 이광호 문선애";
+        str2 = "최형준";
+        if(str1.indexOf(str2) >= 0){
+            console.log("있음")
+        } else {
+            console.log("없음");
+        }
+
+        console.log("search: " + str1.search("이광호"));
+        console.log("slice: " + str1.slice(14));
+        console.log("substring: " + str1.substring(14, 17));
+        console.log("substr: " + str1.substr(14, 3));
+    </script>
+</body>
+</html>
