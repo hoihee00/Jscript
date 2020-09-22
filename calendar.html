@@ -1,29 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calendar.html</title>
 </head>
+
 <body>
-    
+
+    <div id="showResult" style="border: 1px dotted;"></div>
+
     <script>
 
         var today = new Date();
-        console.log(today.getFullYear());
-        console.log(today.getMonth());
-        console.log(today.getDate());
-        var year = today.getFullYear();
-        var month = todat.getMonth();
-        var today = today.getDate();
+        // console.log(today.getFullYear());
+        // console.log(today.getMonth()); //현재 월
+        // console.log(today.getDate()); // 현재 일
+        // var year = today.getFullYear();
+        // var month = todat.getMonth();
+        // var today = today.getDate();
         today.setDate(1);
         console.log("today: " + today.getDate());
-        console.log("today: " + today.getDay());
-        console.log(new Date(2020, 8, 0).getDate());
+        console.log("today: " + today.getDay()); // 현재월의 첫날의 요일
+        console.log(new Date(2020, 9, 0).getDate()); // 8월 마지막날
+        var first = today.getDay();
+        var last = new Date(2020, 9, 0).getDate();
+
+        var cols = ['일', '월', '화', '수', '목', '금', '토'];
+
+        for (var i=0; i<cols.length; i++) {
+            console.log(cols[i]);
+        }
+
+        var i = 1;
+        var elem = document.getElementById("showResult");
+        var tag = "<table border = '1'>";
+
+        for(col of cols) {
+            console.log(col);
+            tag += "<td>" + col + "</td>";
+        }
+
+        var count = 0;
+        tag+="<tr>";
+        for(i=0; i<first; i++){
+            tag += "<td></td>";
+            count++;
+        }
+
+        for(i=1; i<=last; i++){
+            if(count%7 == 0) {
+                tag += "<tr><td>" + i + "</td>";
+            } else {
+                tag += "<td>" + i + "</td>";
+            }
+            count++;
+        }
+
+        tag += "</tr></table>";
+        elem.innerHTML = tag;
+
 
 
 
     </script>
 
 </body>
+
 </html>
