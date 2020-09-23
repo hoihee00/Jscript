@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom2.html</title>
+    <!-- <script src="dom.js"></script> -->
+    <style>
+        #hello {
+            color: coral;
+        }
+        #world {
+            color: blue;
+        }
+    </style>
+</head>
+<body id="bdy" onload="loadPage()">
+    <!-- <div>
+        <p id="hello">Hello!</p>
+        <h2 style="color: blue;">World!</h2>
+    </div> -->
+
+    <script>
+        document.querySelectorAll("body");
+        let bdy = document.getElementsByTagName("body");
+        bdy[0].innerHTML = "<h1>practice</h1>";
+
+        let $div = document.createElement("div");
+        let $p = document.createElement("p");
+        let $text = document.createTextNode("Hello");
+        $p.setAttribute("id", "hello");
+
+        let $h2 = document.createElement("h2");
+        $text1 = document.createTextNode("World");
+        $h2.setAttribute("id", "world");
+
+        $div.appendChild($p);
+        $div.appendChild($h2);
+        $p.appendChild($text);
+        $h2.appendChild($text1);
+
+        bdy[0].appendChild($div);
+    </script>
+
+
+    <!-- <script>
+        document.querySelectorAll("body");
+        let bdy = document.getElementsByTagName("body");
+        bdy[0].innerHTML = "<h1>Hello</h1>";
+        //<ul><li>오렌지</li></ul>
+
+        let $ul = document.createElement("ul"); // $에 특별한 기능이 있어서 붙인 것이 아님
+        let $li = document.createElement("li");
+        let text = document.createTextNode("오렌지");
+        $li.setAttribute("class", "lis");
+
+        $ul.appendChild($li);
+        $li.appendChild(text);
+        
+        text = document.createTextNode("사과");
+        $li = document.createElement("li");
+        $li.appendChild(text);
+        $ul.appendChild($li);
+
+        bdy[0].appendChild($ul);
+    </script>
+    <script src="dom2.js"></script> -->
+
+</body>
+</html>
