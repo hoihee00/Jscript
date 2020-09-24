@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json1.html</title>
+</head>
+
+<body>
+
+
+
+    <p id="showResult"></p>
+    <script>
+        let data = [{
+                "id": 1,
+                "first_name": "Yettie",
+                "last_name": "Roy",
+                "email": "yroy0@google.ru",
+                "gender": "Female",
+                "ip_address": "227.152.245.37"
+            },
+            {
+                "id": 2,
+                "first_name": "Priscilla",
+                "last_name": "Burgon",
+                "email": "pburgon1@telegraph.co.uk",
+                "gender": "Female",
+                "ip_address": "86.156.231.207"
+            },
+            {
+                "id": 3,
+                "first_name": "Berty",
+                "last_name": "Search",
+                "email": "bsearch2@deviantart.com",
+                "gender": "Male",
+                "ip_address": "131.130.46.110"
+            },
+            {
+                "id": 4,
+                "first_name": "Lauralee",
+                "last_name": "Papworth",
+                "email": "lpapworth3@washingtonpost.com",
+                "gender": "Female",
+                "ip_address": "77.190.74.67"
+            },
+            {
+                "id": 5,
+                "first_name": "Mitchel",
+                "last_name": "Sicily",
+                "email": "msicily4@theatlantic.com",
+                "gender": "Male",
+                "ip_address": "204.113.221.18"
+            },
+            {
+                "id": 6,
+                "first_name": "Mohandas",
+                "last_name": "Style",
+                "email": "mstyle5@gmpg.org",
+                "gender": "Male",
+                "ip_address": "72.129.26.246"
+            },
+            {
+                "id": 7,
+                "first_name": "Laura",
+                "last_name": "Innman",
+                "email": "linnman6@sogou.com",
+                "gender": "Female",
+                "ip_address": "109.69.249.64"
+            },
+            {
+                "id": 8,
+                "first_name": "Jeremy",
+                "last_name": "Knevit",
+                "email": "jknevit7@php.net",
+                "gender": "Male",
+                "ip_address": "142.9.215.117"
+            },
+            {
+                "id": 9,
+                "first_name": "Egbert",
+                "last_name": "Delahunt",
+                "email": "edelahunt8@mysql.com",
+                "gender": "Male",
+                "ip_address": "50.70.98.23"
+            },
+            {
+                "id": 10,
+                "first_name": "Khalil",
+                "last_name": "Tunstall",
+                "email": "ktunstall9@privacy.gov.au",
+                "gender": "Male",
+                "ip_address": "153.9.198.232"
+            },
+            {
+                "id": 11,
+                "first_name": "Ernesto",
+                "last_name": "Farrin",
+                "email": "efarrina@odnoklassniki.ru",
+                "gender": "Male",
+                "ip_address": "86.220.57.243"
+            },
+            {
+                "id": 12,
+                "first_name": "Ty",
+                "last_name": "Kobpac",
+                "email": "tkobpacb@umn.edu",
+                "gender": "Male",
+                "ip_address": "224.53.87.153"
+            },
+            {
+                "id": 13,
+                "first_name": "Kareem",
+                "last_name": "Bowling",
+                "email": "kbowlingc@sciencedirect.com",
+                "gender": "Male",
+                "ip_address": "252.20.224.237"
+            },
+            {
+                "id": 14,
+                "first_name": "Louella",
+                "last_name": "Gibling",
+                "email": "lgiblingd@shinystat.com",
+                "gender": "Female",
+                "ip_address": "171.23.31.193"
+            },
+            {
+                "id": 15,
+                "first_name": "Giorgi",
+                "last_name": "Vannet",
+                "email": "gvannete@reference.com",
+                "gender": "Male",
+                "ip_address": "197.44.9.55"
+            },
+            {
+                "id": 16,
+                "first_name": "Stephani",
+                "last_name": "Jedrzej",
+                "email": "sjedrzejf@apple.com",
+                "gender": "Female",
+                "ip_address": "239.74.191.211"
+            },
+            {
+                "id": 17,
+                "first_name": "Fred",
+                "last_name": "Caraher",
+                "email": "fcaraherg@examiner.com",
+                "gender": "Male",
+                "ip_address": "96.46.59.232"
+            },
+            {
+                "id": 18,
+                "first_name": "Everard",
+                "last_name": "Halesworth",
+                "email": "ehalesworthh@last.fm",
+                "gender": "Male",
+                "ip_address": "160.39.77.198"
+            },
+            {
+                "id": 19,
+                "first_name": "Malia",
+                "last_name": "Cardoo",
+                "email": "mcardooi@creativecommons.org",
+                "gender": "Female",
+                "ip_address": "88.70.114.88"
+            },
+            {
+                "id": 20,
+                "first_name": "Irv",
+                "last_name": "Currall",
+                "email": "icurrallj@liveinternet.ru",
+                "gender": "Male",
+                "ip_address": "45.78.120.138"
+            }
+        ]
+        for (let i = 0; i < data.length; i++) {
+            // console.log(data[i].first_name);
+        }
+        for (let field in data[19]) {
+            //  console.log(field,data[19][field]) 필드이름과 그 안에들어있는값 가져오는법
+        }
+        for (let datam of data) {
+            //  console.log(datam)
+        }
+        let fields = ["id", "first_name", "last_name", "email", "gender"];
+        let table, tr, td, text;
+        table = document.createElement("table");
+        table.setAttribute('border', '1');
+
+        //필드..
+        tr = document.createElement("tr");
+        for (let title of fields) {
+            td = document.createElement("th");
+            text = document.createTextNode(title.replace("_", "").toUpperCase()); //언더바 제거하고 대문자로 바꾸기
+            td.appendChild(text);
+            tr.appendChild(td);
+        }
+
+
+        data.forEach(function (obj, idx, ary) {
+            tr = document.createElement("tr");
+            for (let field of fields) {
+                console.log(`${idx}: 필드: ${field},값: ${obj[field]}`);
+                console.log(obj[field]);
+                td = document.createElement("td");
+                text = document.createTextNode(obj[field]);
+                td.appendChild(text);
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        });
+        document.getElementById("showResult").appendChild(table);
+    </script>
+
+
+</body>
+
+</html>
