@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajaxXml2.html</title>
+    <script>
+        let cnt = 1;
+        let lnth = 5;
+
+        function prev() {
+            if (cnt > 0) {
+                cnt--;
+                showCD(cnt);
+            }
+        }
+
+        function next() {
+            if(cnt < lnth - 1) {
+                showCD(cnt);
+                cnt++;
+            }
+        }
+
+        function showCD(i) {
+            let myDiv = document.getElementById('show');
+            let xhtp = new XMLHttpRequest();
+            let myTag = '';
+            xhtp.onreadystatechange = function () {
+                if (xhtp.readyState == 4 && xhtp.status == 200) {
+                    let data = xhtp.responseXML;
+                    let cds = data.getElementsByTagName('CD');
+                    myTag += 'Title: ' + cds[i].children[0].innerHTML; 
+                    myTag += '<br> Artist: ' + cds[i].children[1].innerHTML; 
+                    myTag += '<br> Country: ' + cds[i].children[2].innerHTML;
+
+                    myDiv.innerHTML = myTag;
+                }
+            }
+            xhtp.open('get', 'cd_catalog.xml', true);
+            xhtp.send();
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="showCD(5)">보여줘</button>
+    <div id="show"></div>
+    <button onclick="prev()"> << </button>
+    <button onclick="next()"> >> </button>
+</body>
+
+</html>

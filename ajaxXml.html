@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajaxXml.html</title>
+    <script>
+        function loadXml() {
+            let xhtp = new XMLHttpRequest();
+
+            xhtp.onreadystatechange = function () {
+                if (xhtp.readyState == 4 && xhtp.status == 200) {
+                    // console.log(xhtp.responseXML);
+                    createPage(xhtp.responseXML);
+                }
+            }
+            xhtp.open('get', 'cd_catalog.xml', true); // true: 비동기방식, false: 동기방식
+            xhtp.send();
+        }
+
+        function createPage(data) {
+            let titles = ['노래 제목', '가수', '국가', '레코드사', '가격', '출시연도'];
+            // console.log(data);
+            let tbl = document.getElementById("tbl")
+            let cds = data.getElementsByTagName('CD');
+            let tr, td, text;
+
+            // titles = data.createTextNode("titles");
+            for (let i = 0; i < cds.length; i++) {
+                // row 한 건 생성
+                tr = document.createElement("tr");
+                for (let j=0; j<titles.length; j++) {
+
+                // column 생성 (title, artist, country, company..)
+                td = document.createElement("td");
+                text = document.createTextNode(cds[i].children[j].innerHTML); // title
+                td.append(text);
+                tr.append(td);
+                
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[1].innerHTML); // artist
+                // td.append(text);
+                // tr.append(td);
+                
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[2].innerHTML); // country
+                // td.append(text);
+                // tr.append(td);
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[3].innerHTML); // company
+                // td.append(text);
+                // tr.append(td);
+
+                tbl.append(tr); // 생성한 row를 table에 붙이기
+                }
+            }
+            // cds.forEACH(function(obj, idx){ // 위 for문처럼 사용 가능
+            // });
+            console.log(cds[0].children[0].innerHTML);
+            // tbl.append("리스트"); // append는 문자열도 추가 가능 (appendChild는 element만 추가 가능)
+        }
+    </script>
+</head>
+
+<body>
+    <h2>XML 요청</h2><br>
+    <button onclick="loadXml()">클릭</button>
+
+    <table id="tbl" border='1'></table>
+</body>
+
+</html>
